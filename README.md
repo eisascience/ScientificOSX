@@ -90,7 +90,7 @@ If you have a current R environment that you use and like, it can help to transf
 For convenience, I have the installed_packages.rds stored in /data path. 
 
 
-```{bash }
+```{r }
 #in the old computer:
 
 tmp = installed.packages()
@@ -98,8 +98,12 @@ installedpackages = as.vector(tmp[is.na(tmp[,"Priority"]), 1])
 saveRDS(installedpackages, file="./installed_packages.rds")
 
 #in the new computer:
-installedpackages <- readRDS("~/Desktop/installed_packages.rds")
-for (count in 1:length(installedpackages)) install.packages(installedpackages[count])
+install.packages("BiocManager")
+
+installedpackages <- readRDS("./installed_packages.rds")
+BiocManager::install(installedpackages)
+
+#some packages may not install this way, either they are not on CRAN or Bioconductor or there was a problem. Google each to install. :)
 
 
 ```
