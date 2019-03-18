@@ -29,6 +29,7 @@ brew cask install xquartz #may ask for password
 
 
 brew install Caskroom/cask/mactex
+brew install r
 
 ```
 ### 1.3 R studio:
