@@ -118,7 +118,7 @@ BiocManager::install(installedpackages)
 
 
 
-# Step 3, Extra features, personal.
+## Step 3, Extra features, personal.
 
 Halfstar Itunes:
 defaults write com.apple.iTunes allow-half-stars -bool TRUE
