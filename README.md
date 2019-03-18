@@ -1,7 +1,7 @@
 # ScientificOSX
 These are the steps I took recently to setup a new MacbookPro for scientific/bioinformatics use.
 
-## Step 1
+## Step 1, base software:
 
 ### 1.1 Install homebrew, update
 
@@ -107,8 +107,18 @@ BiocManager::install(installedpackages)
 
 
 ```
+## Step 2, Useful Apps:
 
-# Extra features, personal.
+1. Atom to edit anything. From txt to markdown. https://atom.io/
+2. Box sync. Setup as directed. https://ohsu.account.box.com/login
+3. Evernote. https://evernote.com/
+4. Mendeley. https://www.mendeley.com/
+5. Latex Editor, TexStudio. https://www.texstudio.org/
+6. VLC: https://www.videolan.org/vlc/download-macosx.html
+
+
+
+# Step 3, Extra features, personal.
 
 Halfstar Itunes:
 defaults write com.apple.iTunes allow-half-stars -bool TRUE
