@@ -25,7 +25,9 @@ brew install libgit2
 brew instal fftw
 brew install libomp
 brew install proj
-brew cask install xquartz
+brew cask install xquartz #may ask for password
+
+
 brew install Caskroom/cask/mactex
 
 ```
