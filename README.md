@@ -39,7 +39,7 @@ Install R studio: https://www.rstudio.com/products/rstudio/download/#download
 
 Using 'brew cask install rstudio' also works but the last time I did that, there was a problem with the version on brew, so just get the latest from above link.
 
-#### 1.3.1 Github stup with Rstudio
+#### 1.3.1 Github setup with Rstudio
 To setup SSH keys for easy fast connection between Rstudio and Github: https://happygitwithr.com/ssh-keys.html
 
 ### 1.4 Docker
