@@ -121,6 +121,8 @@ BiocManager::install(installedpackages)
 4. Mendeley. https://www.mendeley.com/
 5. Latex Editor, TexStudio. https://www.texstudio.org/
 6. VLC: https://www.videolan.org/vlc/download-macosx.html
+7. Mozilla Firefox: https://www.mozilla.org
+
 
 
 
