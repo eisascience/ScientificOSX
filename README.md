@@ -25,6 +25,7 @@ brew install libgit2
 brew instal fftw
 brew install libomp
 brew install proj
+brew install libxml2
 brew cask install xquartz #may ask for password
 
 
