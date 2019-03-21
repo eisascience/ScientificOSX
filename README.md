@@ -88,6 +88,8 @@ pip install networkx
 pip install git+git://github.com/scikit-learn/scikit-learn.git
 pip install git+git://github.com/statsmodels/statsmodels.git
 
+ pip install umap-learn
+
 ```
 
 ### 1.4 R and Libs
