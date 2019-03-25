@@ -25,7 +25,6 @@ brew install libgit2
 brew instal fftw
 brew install libomp
 brew install proj
-brew install libxml2
 brew cask install xquartz #may ask for password
 
 
@@ -33,6 +32,19 @@ brew install Caskroom/cask/mactex
 brew install r
 
 ```
+#### 1.2.2 xml2 package 
+For some reason I hit problems installing R packages like kableExtra which require xml2 to be installed.... 
+
+```{bash }
+brew install libxml2
+R CMD INSTALL --configure-vars='INCLUDE_DIR=/usr/local/opt/libxml2/include/libxml2 LIB_DIR=/usr/local/opt/libxml2/lib/' xml2_1.2.0.tar.gz
+```
+But if this does not work (didnt for me) as mojave has a different version already installed... 
+
+```{bash }
+sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+```
+
 ### 1.3 R studio:
 
 
