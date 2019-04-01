@@ -55,6 +55,20 @@ Using 'brew cask install rstudio' also works but the last time I did that, there
 #### 1.3.1 Github setup with Rstudio
 To setup SSH keys for easy fast connection between Rstudio and Github: https://happygitwithr.com/ssh-keys.html
 
+#### 1.3.2 Memory issue with Rstudio
+At some point I hit an error "ector memory exhausted (limit reached?)"... 
+
+```{bash, }
+nano ~/.Renviron
+
+#copy these two lines over then save and quit.
+PATH="/usr/local/clang6/bin:${PATH}"
+
+R_MAX_VSIZE=100Gb
+```
+
+
+
 ### 1.4 Docker
 ```{bash }
 brew cask install docker
