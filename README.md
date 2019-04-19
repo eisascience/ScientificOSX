@@ -142,6 +142,64 @@ BiocManager::install(installedpackages)
 
 
 ```
+
+#### Specially difficult to install libs
+
+##### Monocle 3 (alpha)
+
+The original source is: https://cole-trapnell-lab.github.io/monocle-release/monocle3/#what-s-new-in-monocle-3
+
+```{r }
+source("http://bioconductor.org/biocLite.R")
+biocLite()
+biocLite("monocle")
+devtools::install_github("cole-trapnell-lab/DDRTree", ref="simple-ppt-like")
+devtools::install_github("cole-trapnell-lab/L1-graph")
+
+# if everything above is installed, this is not needed as other packages like Seurat also require these
+#install.packages("reticulate")
+#library(reticulate)
+#py_install('umap-learn', pip = T, pip_ignore_installed = T) # Ensure the latest version of UMAP is installed
+#py_install("louvain")
+
+
+devtools::install_github("cole-trapnell-lab/monocle-release", ref="monocle3_alpha")
+
+
+```
+
+But for this to work, rgdal and sf packages and their dependencies also need to be installed.
+
+From https://www.kyngchaos.com/software/frameworks/  download and install the OSX GDAL framework. I downloaded the 'GDAL_Complete-2.4.dmg'. Also see https://stat.ethz.ch/pipermail/r-sig-mac/2017-June/012429.html if stuck.
+
+The whole point of this is to install https://github.com/r-spatial/sf which depends on gdal and etc.
+
+Install gdal
+
+```{bash }
+brew install gdal
+
+```
+
+```{r }
+install.packages("sf", configure.args=c('--with-gdal-config=/Library/Frameworks/GDAL.framework/Programs/gdal-config', 
+                                        '--with-proj-include=/Library/Frameworks/PROJ.framework/Headers', 
+                                        '--with-proj-lib=/Library/Frameworks/PROJ.framework/unix/lib'))
+
+install.packages('rgdal', type = "source", configure.args=c(
+  '--with-gdal-config=/Library/Frameworks/GDAL.framework/Programs/gdal-config',
+  '--with-proj-include=/Library/Frameworks/PROJ.framework/Headers',
+  '--with-proj-lib=/Library/Frameworks/PROJ.framework/unix/lib'))
+  
+  
+```
+
+Now this should run without any errors.
+```{r }
+devtools::install_github("cole-trapnell-lab/monocle-release", ref="monocle3_alpha")
+
+```
+
 ## Step 2, Useful Apps:
 
 1. Atom to edit anything. From txt to markdown. https://atom.io/
