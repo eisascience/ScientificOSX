@@ -200,6 +200,35 @@ devtools::install_github("cole-trapnell-lab/monocle-release", ref="monocle3_alph
 
 ```
 
+Next, several additional dependencies need to be installed that are tricky also:
+
+
+For sanity reinstall cairo with brew to the latest. 
+```{bash }
+brew reinstall cairo
+```
+
+Then, add the three lines to nano ~/.R/Makevars below and save close and restart R.
+
+```{bash }
+CAIRO_CFLAGS = /usr/local/include
+CAIRO_LIBS = /usr/local/opt/cairo
+PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+```
+now installing Cairo in R should work, followed by ggraster.
+
+```{r }
+install.packages("Cairo")
+
+devtools::install_github('VPetukhov/ggrastr')
+
+```
+
+
+
+
+
+
 ## Step 2, Useful Apps:
 
 1. Atom to edit anything. From txt to markdown. https://atom.io/
