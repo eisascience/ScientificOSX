@@ -12,6 +12,9 @@ brew analytics off
 
 brew update && brew upgrade
 brew config
+
+brew install caskroom/cask/brew-cask
+
 ```
 
 ### 1.2 R studio:
