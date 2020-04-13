@@ -13,52 +13,25 @@ brew analytics off
 brew update && brew upgrade
 brew config
 
-brew install caskroom/cask/brew-cask
 
 ```
 
 ### 1.2 R studio:
 
-
 Install latest R & R studio: https://www.rstudio.com/products/rstudio/download/#download
 
 
-#### 1.3.1 Github setup with Rstudio
-To setup SSH keys for easy fast connection between Rstudio and Github: https://happygitwithr.com/ssh-keys.html
-
-#### 1.3.2 Memory issue with Rstudio
-At some point I hit an error "ector memory exhausted (limit reached?)"... 
-
-```{bash, }
-nano ~/.Renviron
-
-#copy these two lines over then save and quit.
-PATH="/usr/local/clang6/bin:${PATH}"
-
-R_MAX_VSIZE=100Gb
-```
-
-
-
-### 1.4 Docker
-```{bash }
-brew cask install docker
-```
-
 ### 1.4 Python and Libs
 ```{bash }
-brew cask install docker
 
 brew install python
-brew install python@2
 
 pip install --upgrade distribute
 pip install --upgrade pip
 
-pip install Cython
 
 brew install libtiff libjpeg webp little-cms2
-pip install Pillow
+pip  install Pillow
 brew install imagemagick --with-fftw --with-librsvg --with-x11
 brew install graphviz --with-librsvg
 brew install cairo
