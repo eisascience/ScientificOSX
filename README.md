@@ -6,7 +6,7 @@ These are the steps I took recently to setup a new MacbookPro for scientific/bio
 ### 1.1 Install homebrew, update
 
 ```{bash }
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 brew analytics off
 
