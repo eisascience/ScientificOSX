@@ -24,12 +24,12 @@ brew cask install adoptopenjdk11
 
 ```
 
-### 1.2 R studio:
+### R studio:
 
 Install latest R & R studio: https://www.rstudio.com/products/rstudio/download/#download
 
 
-### 1.3 Python and Libs
+### Python and Libs
 ```{bash }
 
 brew cask install xquartz
@@ -41,7 +41,7 @@ pip3 install umap-learn
 
 ```
 
-### 1.4 Extra installs
+### Extra installs
 
 ```{bash }
 
@@ -49,7 +49,7 @@ Install latest gfortran https://github.com/fxcoudert/gfortran-for-macOS/releases
 
 ```
 
-### 1.4 R packages 
+### R packages 
 
 ```{r}
 
@@ -63,5 +63,13 @@ BiocManager::install(c('org.Hs.eg.db', 'org.Mm.eg.db', 'HSMMSingleCell', 'monocl
 devtools::install_github(repo = 'bimberlabinternal/OOSAP', ref = 'Dev', dependencies = T, upgrade = 'always')
 
 ```
+
+### cask software
+
+```{bash]
+brew cask install cyberduck
+
+```
+
 
 
