@@ -8,6 +8,8 @@ These are the steps I took recently to setup a new MacbookPro for scientific/bio
 ```{bash }
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+brew analytics off
+
 brew update && brew upgrade
 brew config
 ```
@@ -29,7 +31,7 @@ brew cask install xquartz #may ask for password
 
 
 brew install Caskroom/cask/mactex
-brew install r
+
 
 ```
 #### 1.2.2 xml2 package 
