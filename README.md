@@ -11,8 +11,8 @@ These are the steps I took recently to setup a new MacbookPro for scientific/bio
 brew analytics off
 
 brew update && brew upgrade
-brew config
 
+brew config
 
 ```
 
@@ -24,39 +24,13 @@ Install latest R & R studio: https://www.rstudio.com/products/rstudio/download/#
 ### 1.4 Python and Libs
 ```{bash }
 
+brew cask install xquartz
+
 brew install python
 
 pip install --upgrade distribute
 pip install --upgrade pip
 
-
-brew install libtiff libjpeg webp little-cms2
-pip  install Pillow
-brew install imagemagick --with-fftw --with-librsvg --with-x11
-brew install graphviz --with-librsvg
-brew install cairo
-brew install py2cairo # this will ask you to download xquartz and install it
-brew install qt pyqt5
-
-pip install scipy
-pip install numpy
-
-brew install matplotlib --with-cairo --with-tex
-pip install pandas
-pip install nltk
-pip install sympy
-pip install q
-pip install snakeviz
-
-brew install zmq
-pip install ipython[all]
-pip install html5lib cssselect pyquery lxml BeautifulSoup
-pip install Flask Django tornado
-pip install rdflib SPARQLWrapper
-pip install networkx
-
-pip install git+git://github.com/scikit-learn/scikit-learn.git
-pip install git+git://github.com/statsmodels/statsmodels.git
 
  pip install umap-learn
 
