@@ -62,6 +62,8 @@ BiocManager::install(c('org.Hs.eg.db', 'org.Mm.eg.db', 'HSMMSingleCell', 'monocl
 #installs Seurat as part of the OOSAP package and dependencies
 devtools::install_github(repo = 'bimberlabinternal/OOSAP', ref = 'Dev', dependencies = T, upgrade = 'always')
 
+devtools::install_github('VPetukhov/ggrastr')
+
 ```
 
 ### cask software
@@ -69,6 +71,7 @@ devtools::install_github(repo = 'bimberlabinternal/OOSAP', ref = 'Dev', dependen
 ```{bash]
 brew cask install cyberduck
 brew cask install mendeley
+brew cask install TexStudio
 
 ```
 
