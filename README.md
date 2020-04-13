@@ -68,6 +68,7 @@ devtools::install_github(repo = 'bimberlabinternal/OOSAP', ref = 'Dev', dependen
 
 ```{bash]
 brew cask install cyberduck
+brew cask install mendeley
 
 ```
 
