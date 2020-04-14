@@ -72,6 +72,7 @@ devtools::install_github('VPetukhov/ggrastr')
 brew cask install cyberduck
 brew cask install mendeley
 brew cask install TexStudio
+brew cask install docker
 
 ```
 
