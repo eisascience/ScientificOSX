@@ -58,9 +58,7 @@ nano ~/.bash_profile
 Include this in ~/.bash_profile & save. 
 
 ```{bash }
-export PATH=/usr/local/sbin:$PATH
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-alias edit='open -a /Applications/TextEdit.app/'
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 alias rc='source ~/.bash_profile'
 alias man='_() { echo $1; man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1 1>/dev/null 2>&1;  if [ "$?" -eq 0 ]; then man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1; else man $1; fi }; _'
 
@@ -90,6 +88,12 @@ brew install --cask adoptopenjdk11
 
 Install latest R & R studio: https://www.rstudio.com/products/rstudio/download/#download
 
+### Base Needs
+
+```{bash}
+brew install hdf5
+
+```
 
 ### Python and Libs
 
@@ -134,7 +138,7 @@ Note: Jupyter Notebooks are able to work with virtual environments so that you a
 
 ```{bash}
 #change myenv to a name
-python3.9 -m ipykernel install --user --name myenv --display-name "Python (myenv)"
+python3 -m ipykernel install --user --name myenv --display-name "Python (myenv)"
 ```
 
 #### Python Packages
