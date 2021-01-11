@@ -102,7 +102,8 @@ https://rud.is/rswitch/guide/index.html
 
 ```{bash}
 pkgutil --pkgs #shows what is installed
-#updated for catalina
+#updated for catalina, and I installed 4.0 first then 3.6 and the below code worked great.
+#Make sure you copy over the RSwitch.App to your applications folder and run it.
 
 sudo pkgutil --forget org.R-project.R.fw.pkg
 sudo pkgutil --forget org.r-project.x86_64.tcltk
@@ -114,8 +115,10 @@ sudo pkgutil --forget org.R-project.R.GUI.pkg
 ### Base Needs
 
 ```{bash}
-brew install hdf5
-
+brew install hdf5 git freetype
+brew install cmake automake fontconfig jpeg libtiff libpng libffi doxygen
+brew install glib libcaca libconfig libtasn1 libtool libunistring zlib icu4c
+brew install tmux
 ```
 
 ### Python and Libs
@@ -195,6 +198,8 @@ Install latest gfortran https://github.com/fxcoudert/gfortran-for-macOS/releases
 ```
 
 ### R packages 
+
+Note if you have multiple R environments, you may want to do this for each.
 
 ```{bash}
 #update Rprofile by adding the line below and saving
