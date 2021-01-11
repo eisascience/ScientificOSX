@@ -1,7 +1,11 @@
 # ScientificOSX
-These are the steps I took recently to setup a new MacbookPro for scientific/bioinformatics use.
+
+These are the steps I took recently to setup a new MacbookPro (Catalina OSX 10.15.7) for scientific/bioinformatics use.
 
 ## Step 1, base software:
+
+Log in to App Store with login. Xcode and other needed items are autodownloaded by homebrew via the App Store.
+
 
 ### Install homebrew, update
 
@@ -16,11 +20,69 @@ brew config
 
 ```
 
+### Extras
+
+```{bash }
+#update bash
+bash --version
+
+brew install bash
+
+#The newer version of bash is located at /usr/local/bin/bash:
+ls -l /usr/local/bin/bash
+cat /etc/shells
+
+
+# If not in /etc/shells, append it:
+sudo -i
+echo /usr/local/bin/bash >> /etc/shells
+
+#Set default shell to /usr/local/bin/bash, run the following chsh command
+chsh -s /usr/local/bin/bash
+
+#should have changed to latests
+bash --version
+
+```
+
+### Create 
+
+```{bash }
+touch ~/.bash_profile
+# to edit use nano 
+nano ~/.bash_profile
+
+
+
+```
+Include this in ~/.bash_profile & save. 
+
+```{bash }
+export PATH=/usr/local/sbin:$PATH
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+alias edit='open -a /Applications/TextEdit.app/'
+alias rc='source ~/.bash_profile'
+alias man='_() { echo $1; man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1 1>/dev/null 2>&1;  if [ "$?" -eq 0 ]; then man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1; else man $1; fi }; _'
+
+```
+
+```{bash }
+source ~/.bash_profile
+```
+
+### Xquartz
+
+```{bash }
+
+brew install --cask xquartz
+
+```
+
 ### JAVA
 
 ```{bash }
 brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk11
+brew install --cask adoptopenjdk11
 
 ```
 
@@ -30,10 +92,8 @@ Install latest R & R studio: https://www.rstudio.com/products/rstudio/download/#
 
 
 ### Python and Libs
+
 ```{bash }
-
-brew cask install xquartz
-
 brew install python
 
 
