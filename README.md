@@ -93,13 +93,63 @@ Install latest R & R studio: https://www.rstudio.com/products/rstudio/download/#
 
 ### Python and Libs
 
-```{bash }
-brew install python
+#### management of different python versions
 
+There are a number of tools available that enable the installation and management of different python versions.
+
+pyenv is one tool to do this.
+
+```{bash }
+brew install pyenv
+echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
+source ~/.bash_profile
+pyenv install --list
+
+#see list for latest
+#pyenv install 3.9.1 # 3.9 does not support Numpy
+pyenv install  3.8.7
+pyenv install 2.7.18
+```
+#### virtual python environments 
+
+To have different python projects with different dependencies and versions of python; environments help isolate them.
+
+to create python virtual environments using pipenv:
+
+```{bash }
+brew install pipenv
+
+
+mkdir MyPyTest
+cd MyPyTest
+pipenv --python 3.8
+
+#to install packages use pipenv within the environment
+
+pipenv install ipykernel
+
+
+```
+Note: Jupyter Notebooks are able to work with virtual environments so that you are able to run the notebooks for a project in the correct project environment.
+
+```{bash}
+#change myenv to a name
+python3.9 -m ipykernel install --user --name myenv --display-name "Python (myenv)"
+```
+
+#### Python Packages
+
+jupyter notebook can be invoked which will automatically open a window in your browser.
+
+
+```{bash }
+pip3 install notebook
 
 pip3 install umap-learn
 
 ```
+
+
 
 ### Extra installs
 
