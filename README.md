@@ -113,6 +113,14 @@ pyenv install --list
 #pyenv install 3.9.1 # 3.9 does not support Numpy
 pyenv install  3.8.7
 pyenv install 2.7.18
+
+#set globally which python
+pyenv global 3.8.7
+pyenv version
+
+#update pip
+pip install --upgrade pip
+
 ```
 #### virtual python environments 
 
@@ -148,7 +156,7 @@ jupyter notebook can be invoked which will automatically open a window in your b
 
 ```{bash }
 pip3 install notebook
-
+ip3 install h5py
 pip3 install umap-learn
 
 ```
@@ -165,16 +173,21 @@ Install latest gfortran https://github.com/fxcoudert/gfortran-for-macOS/releases
 
 ### R packages 
 
+```{bash}
+#update Rprofile by adding the line below and saving
+nano ~/.Rprofile.site
+# local({options(repos = BiocManager::repositories())})
+
+```
+
+
+
 ```{r}
 
 install.packages(c('devtools', 'BiocManager', 'remotes'), dependencies=TRUE, ask = FALSE)
-
-options(repos = BiocManager::repositories())
+install.packages('XML', repos = 'http://www.omegahat.net/R')
 
 BiocManager::install(c('org.Hs.eg.db', 'org.Mm.eg.db', 'HSMMSingleCell', 'monocle', 'DelayedMatrixStats', 'DESeq2', 'genefilter'), dependencies=TRUE, ask = FALSE)
-
-#installs Seurat as part of the OOSAP package and dependencies
-devtools::install_github(repo = 'bimberlabinternal/OOSAP', ref = 'Dev', dependencies = T, upgrade = 'always')
 
 devtools::install_github('VPetukhov/ggrastr')
 
