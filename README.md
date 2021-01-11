@@ -84,9 +84,32 @@ brew install --cask adoptopenjdk11
 
 ```
 
-### R studio:
+### R and R studio:
 
-Install latest R & R studio: https://www.rstudio.com/products/rstudio/download/#download
+Install latest R: https://cran.r-project.org/bin/macosx/
+RStudio: https://www.rstudio.com/products/rstudio/download/#download
+
+
+#### Multiple versions of R
+
+Blindly using the binary installer (*.pkg) version available through CRAN will remove the current version of the r framework (including your package libraries). 
+
+Thus, prior to installing the new version of R is trick OSX into forgetting that R is already installed on your system by using pkgutil.
+
+https://rud.is/rswitch/guide/index.html
+
+
+
+```{bash}
+pkgutil --pkgs #shows what is installed
+#updated for catalina
+
+sudo pkgutil --forget org.R-project.R.fw.pkg
+sudo pkgutil --forget org.r-project.x86_64.tcltk
+sudo pkgutil --forget org.R-project.R.GUI.pkg
+             
+             
+```
 
 ### Base Needs
 
