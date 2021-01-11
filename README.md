@@ -219,6 +219,9 @@ BiocManager::install(c('org.Hs.eg.db', 'org.Mm.eg.db', 'HSMMSingleCell', 'monocl
 
 devtools::install_github('VPetukhov/ggrastr')
 
+remotes::install_github("juba/rmdformats")
+
+
 ```
 
 ### cask software
