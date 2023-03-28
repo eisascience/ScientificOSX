@@ -216,11 +216,18 @@ install.packages(c('devtools', 'BiocManager', 'remotes'), dependencies=TRUE, ask
 install.packages('XML', repos = 'http://www.omegahat.net/R')
 
 BiocManager::install(c('org.Hs.eg.db', 'org.Mm.eg.db', 'HSMMSingleCell', 'monocle', 'DelayedMatrixStats', 'DESeq2', 'genefilter'), dependencies=TRUE, ask = FALSE)
+BiocManager::install("DropletUtils")
+BiocManager::install("SingleR")
+BiocManager::install("MAST")
+BiocManager::install("scDblFinder")
+BiocManager::install("ExperimentHub")
+BiocManager::install("ComplexHeatmap")
+BiocManager::install("celldex")
+BiocManager::install("clusterProfiler")
 
 devtools::install_github('VPetukhov/ggrastr')
-
 remotes::install_github("juba/rmdformats")
-
+devtools::install_github(repo = 'bimberlabinternal/cellmembrane', dependencies = TRUE)
 
 ```
 
