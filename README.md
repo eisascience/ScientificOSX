@@ -1,11 +1,12 @@
 # ScientificOSX
 
-These are the steps I took recently to setup a new MacbookPro (Catalina OSX 10.15.7) for scientific/bioinformatics use.
+These are the steps I took recently to setup a new MacbookPro (Sonoma OS 14.7.2) for scientific/bioinformatics use.
 
 ## Step 1, base software:
 
 Log in to App Store with login. Xcode and other needed items are autodownloaded by homebrew via the App Store.
 
+Start Xcode & accept terms.
 
 ### Install homebrew, update
 
@@ -23,6 +24,8 @@ brew config
 ### Extras
 
 ```{bash }
+#skip this, its pedantic
+
 #update bash
 bash --version
 
@@ -59,8 +62,9 @@ Include this in ~/.bash_profile & save.
 
 ```{bash }
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-alias rc='source ~/.bash_profile'
-alias man='_() { echo $1; man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1 1>/dev/null 2>&1;  if [ "$?" -eq 0 ]; then man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1; else man $1; fi }; _'
+alias rc="source ~/.bash_profile"
+
+#alias man="_() { echo $1; man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1 1>/dev/null 2>&1;  if [ "$?" -eq 0 ]; then man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1; else man $1; fi }; _"
 
 ```
 
@@ -86,21 +90,25 @@ brew install --cask adoptopenjdk11
 
 ### R and R studio:
 
+install https://rud.is/rswitch/
 Install latest R: https://cran.r-project.org/bin/macosx/
 RStudio: https://www.rstudio.com/products/rstudio/download/#download
 
+At this time, I need 4.2 and 4.4 so I installed them both respectively. 
 
 #### Multiple versions of R
 
 Blindly using the binary installer (*.pkg) version available through CRAN will remove the current version of the r framework (including your package libraries). 
 
-Thus, prior to installing the new version of R is trick OSX into forgetting that R is already installed on your system by using pkgutil.
+Thus, prior to installing the new version of R is trick OSX into forgetting that R is already installed on your system by using rswitch.
 
 https://rud.is/rswitch/guide/index.html
 
 
 
 ```{bash}
+#this is old stuff hoarding just in case
+
 pkgutil --pkgs #shows what is installed
 #updated for catalina, and I installed 4.0 first then 3.6 and the below code worked great.
 #Make sure you copy over the RSwitch.App to your applications folder and run it.
@@ -127,11 +135,12 @@ brew install tmux
 
 There are a number of tools available that enable the installation and management of different python versions.
 
-pyenv is one tool to do this.
+pyenv is one tool to do this. One could also use anaconda or miniconda or similar. 
 
 ```{bash }
+#skip for now, later we can use a flavor of conda
 brew install pyenv
-echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
+echo "eval "$(pyenv init -)"" >> ~/.bash_profile
 source ~/.bash_profile
 pyenv install --list
 
@@ -155,6 +164,8 @@ To have different python projects with different dependencies and versions of py
 to create python virtual environments using pipenv:
 
 ```{bash }
+#skip for now, later we can use a flavor of conda
+
 brew install pipenv
 
 
@@ -171,6 +182,8 @@ pipenv install ipykernel
 Note: Jupyter Notebooks are able to work with virtual environments so that you are able to run the notebooks for a project in the correct project environment.
 
 ```{bash}
+#skip for now, later we can use a flavor of conda
+
 #change myenv to a name
 python3 -m ipykernel install --user --name myenv --display-name "Python (myenv)"
 ```
@@ -182,7 +195,7 @@ jupyter notebook can be invoked which will automatically open a window in your b
 
 ```{bash }
 pip3 install notebook
-ip3 install h5py
+pip3 install h5py
 pip3 install umap-learn
 
 ```
@@ -192,7 +205,7 @@ pip3 install umap-learn
 ### Extra installs
 
 ```{bash }
-
+#skip for now
 Install latest gfortran https://github.com/fxcoudert/gfortran-for-macOS/releases
 
 ```
@@ -212,32 +225,40 @@ nano ~/.Rprofile.site
 
 ```{r}
 
-install.packages(c('devtools', 'BiocManager', 'remotes'), dependencies=TRUE, ask = FALSE)
-install.packages('XML', repos = 'http://www.omegahat.net/R')
+install.packages(c("devtools", "BiocManager", "remotes"), dependencies=TRUE, ask = FALSE)
 
-BiocManager::install(c('org.Hs.eg.db', 'org.Mm.eg.db', 'HSMMSingleCell', 'monocle', 'DelayedMatrixStats', 'DESeq2', 'genefilter'), dependencies=TRUE, ask = FALSE)
-BiocManager::install("DropletUtils")
-BiocManager::install("SingleR")
-BiocManager::install("MAST")
-BiocManager::install("scDblFinder")
-BiocManager::install("ExperimentHub")
-BiocManager::install("ComplexHeatmap")
-BiocManager::install("celldex")
-BiocManager::install("clusterProfiler")
+BiocManager::install(c("BiocParallel", "DropletUtils", "ExperimentHub", "SingleCellExperiment"), dependencies=TRUE)
+BiocManager::install(c("SingleR", "celldex", "DESeq2", "MAST", "scDblFinder", "ComplexHeatmap", "clusterProfiler", "RUVSeq", "escape", "GSVA", "decoupleR", "OmnipathR", "monocle", "princurve", "vegan", "RSelenium", "wordcloud" , "ggpubr"), dependencies=TRUE)
+BiocManager::install(c("org.Hs.eg.db", "org.Mm.eg.db", "HSMMSingleCell", "DelayedMatrixStats", "DESeq2", "genefilter", "preprocessCore", "demuxmix"), dependencies=TRUE)
+BiocManager::install(c("preprocessCore", "demuxmix"), dependencies=TRUE)
 
-devtools::install_github('VPetukhov/ggrastr')
+devtools::install_github("karthik/wesanderson")
+devtools::install_github("marchinilab/SDAtools")
+devtools::install_github("davidsjoberg/ggsankey")
+devtools::install_github("VPetukhov/ggrastr")
 remotes::install_github("juba/rmdformats")
-devtools::install_github(repo = 'bimberlabinternal/cellmembrane', dependencies = TRUE)
+
+devtools::install_github(repo = "bimberlabinternal/cellmembrane", dependencies = TRUE)
+devtools::install_github(repo = "eisascience/scCustFx", dependencies = TRUE)
+devtools::install_github(repo = "bimberlab/cellhashR", ref = "master", dependencies = TRUE)
+devtools::install_github(repo = "bimberlabinternal/Rdiscvr", dependencies = TRUE)
+devtools::install_github(repo = "bimberlabinternal/rira", dependencies = TRUE)
+
+# install.packages("XML", repos = "http://www.omegahat.net/R")
+
+
+
+
 
 ```
 
 ### cask software
 
 ```{bash]
-brew cask install cyberduck
-brew cask install mendeley
-brew cask install TexStudio
-brew cask install docker
+brew install --cask cyberduck
+brew install --cask docker
+
+
 
 ```
 
